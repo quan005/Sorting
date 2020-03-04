@@ -47,13 +47,13 @@ def merge_sort( arr ):
 
     # assign both the left and right side of the arrays into there own
     # seperate arrays by slicing them according to where the middle is.
-    right = arr[:middle]
-    left = arr[middle:]
+    right = merge_sort(arr[:middle])
+    left = merge_sort(arr[middle:])
 
     # recursively call merge_sort to continue to divide the halfs until they're
     # arrays of singe integers, then use merge to sort and merge the arrays
     
-    return merge(merge_sort(left), merge_sort(right))
+    return merge(left, right)
 
 # new_array = [1, 7, 3, 9, 8, 4, 2, 5, 0, 6]
 # merge_sort(new_array)
